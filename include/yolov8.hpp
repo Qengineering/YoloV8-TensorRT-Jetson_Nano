@@ -1,3 +1,7 @@
+//
+// Created by  triple-Mu     on 24-1-2023.
+// Modified by Q-engineering on  6-3-2024
+//
 #ifndef DETECT_NORMAL_YOLOV8_HPP
 #define DETECT_NORMAL_YOLOV8_HPP
 #include "NvInferPlugin.h"

@@ -1,6 +1,8 @@
 //
-// Created Q-engineering 5-31-2024
+// Created by  triple-Mu     on 24-1-2023.
+// Modified by Q-engineering on  6-3-2024
 //
+
 #include "chrono"
 #include "opencv2/opencv.hpp"
 #include "yolov8.hpp"
@@ -8,7 +10,9 @@
 using namespace std;
 using namespace cv;
 
-cv::Size im_size(640, 640);
+//#define VIDEO
+
+cv::Size       im_size(640, 640);
 const int      num_labels  = 80;
 const int      topk        = 100;
 const float    score_thres = 0.25f;
@@ -43,8 +47,24 @@ int main(int argc, char** argv)
     cout << endl;
     yolov8->MakePipe(true);
 
+#ifdef VIDEO
+    VideoCapture cap(imagepath);
+    if (!cap.isOpened()) {
+        cerr << "ERROR: Unable to open the stream " << imagepath << endl;
+        return 0;
+    }
+#endif // VIDEO
+
     while(1){
+#ifdef VIDEO
+        cap >> image;
+        if (image.empty()) {
+            cerr << "ERROR: Unable to grab from the camera" << endl;
+            break;
+        }
+#else
         image = cv::imread(imagepath);
+#endif
         yolov8->CopyFromMat(image, im_size);
 
         std::vector<Object> objs;

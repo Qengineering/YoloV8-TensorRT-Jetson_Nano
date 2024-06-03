@@ -1,3 +1,8 @@
+//
+// Created by  triple-Mu     on 24-1-2023.
+// Modified by Q-engineering on  6-3-2024
+//
+
 #include "yolov8.hpp"
 //----------------------------------------------------------------------------------------
 //using namespace det;
