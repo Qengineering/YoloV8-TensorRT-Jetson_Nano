@@ -276,11 +276,11 @@ void YOLOv8::DrawObjects(cv::Mat& bgr, const std::vector<Object>& objs)
         cv::Size label_size = cv::getTextSize(text, cv::FONT_HERSHEY_SIMPLEX, 0.5, 1, &baseLine);
 
         int x = (int)obj.rect.x;
-        int y = (int)obj.rect.y + 1;
+        int y = (int)obj.rect.y - label_size.height - baseLine;
 
+        if (y < 0)        y = 0;
         if (y > bgr.rows) y = bgr.rows;
-        if (x + label_size.width > bgr.cols)
-            x = bgr.cols - label_size.width;
+        if (x + label_size.width > bgr.cols) x = bgr.cols - label_size.width;
 
         cv::rectangle(bgr, cv::Rect(cv::Point(x, y), cv::Size(label_size.width, label_size.height + baseLine)), cv::Scalar(255, 255, 255), -1);
 
