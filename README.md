@@ -54,8 +54,7 @@ To export `onnx` to `engine` use the following command.<br>
 $ trtexec --onnx=yolov8s.onnx --saveEngine=yolov8s.engine --fp16
 ```
 Please be patient, it will take minutes to complete the conversion.<br><br>
-Instead of `--fp16`, you could use `--int8`. All 16-bit floating points are now pruned to 8-bit integers, giving you a smaller but less accurate model.<br>
-You can run the app once you have your `yolov8s.engine` model.
+Instead of `--fp16`, you could use `--int8`. All 16-bit floating points are now pruned to 8-bit integers, giving you a smaller but less accurate model. You can run the app once you have your `yolov8s.engine` model.
 
 ------------
 
