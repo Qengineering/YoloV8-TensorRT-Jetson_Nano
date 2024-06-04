@@ -30,9 +30,9 @@ Follow the [Jetson Nano guide](https://qengineering.eu/install-opencv-on-jetson-
 ## Installing the app.
 To extract and run the network in Code::Blocks <br/>
 ```
-$ mkdir *MyDir* <br/>
-$ cd *MyDir* <br/>
-$ git clone https://github.com/Qengineering/oloV8-TensorRT-Jetson_Nano.git <br/>
+$ mkdir *MyDir*
+$ cd *MyDir* 
+$ git clone https://github.com/Qengineering/YoloV8-TensorRT-Jetson_Nano.git
 ```
 
 ------------
