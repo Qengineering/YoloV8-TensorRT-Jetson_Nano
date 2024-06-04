@@ -32,7 +32,7 @@ To extract and run the network in Code::Blocks <br/>
 ```
 $ mkdir *MyDir*
 $ cd *MyDir* 
-$ git clone https://github.com/Qengineering/YoloV8-TensorRT-Jetson_Nano.git
+$ git clone --depth=1 https://github.com/Qengineering/YoloV8-TensorRT-Jetson_Nano.git
 ```
 
 ------------
