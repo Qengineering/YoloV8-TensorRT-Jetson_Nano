@@ -4,6 +4,9 @@
 //
 
 #include "yolov8.hpp"
+#include <cuda_runtime_api.h>
+#include <cuda.h>
+
 //----------------------------------------------------------------------------------------
 //using namespace det;
 //----------------------------------------------------------------------------------------
@@ -88,17 +91,28 @@ YOLOv8::~YOLOv8()
 //----------------------------------------------------------------------------------------
 void YOLOv8::MakePipe(bool warmup)
 {
+#ifndef CUDART_VERSION
+#error CUDART_VERSION Undefined!
+#endif
 
     for (auto& bindings : this->input_bindings) {
         void* d_ptr;
+#if(CUDART_VERSION < 11000)
+        CHECK(cudaMalloc(&d_ptr, bindings.size * bindings.dsize));
+#else
         CHECK(cudaMallocAsync(&d_ptr, bindings.size * bindings.dsize, this->stream));
+#endif
         this->device_ptrs.push_back(d_ptr);
     }
 
     for (auto& bindings : this->output_bindings) {
         void * d_ptr, *h_ptr;
         size_t size = bindings.size * bindings.dsize;
-        CHECK(cudaMallocAsync(&d_ptr, size, this->stream));
+#if(CUDART_VERSION < 11000)
+        CHECK(cudaMalloc(&d_ptr, bindings.size * bindings.dsize));
+#else
+        CHECK(cudaMallocAsync(&d_ptr, bindings.size * bindings.dsize, this->stream));
+#endif
         CHECK(cudaHostAlloc(&h_ptr, size, 0));
         this->device_ptrs.push_back(d_ptr);
         this->host_ptrs.push_back(h_ptr);
