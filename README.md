@@ -8,6 +8,24 @@ For now: https://github.com/akashAD98/yolov8_in_depth<br>
 Paper: on Ultralytics TODO list https://github.com/ultralytics/ultralytics<br/><br/>
 Specially made for a Jetson Nano see [Q-engineering deep learning examples](https://qengineering.eu/deep-learning-examples-on-raspberry-32-64-os.html)
 
+
+------------
+
+## Model performance benchmark(FPS)
+
+All models are quantized to `FP16`.<br>
+The `int8` models don't give any increase in FPS, while, at the same time, their mAP is significantly worse.<br>
+The numbers reflect only the inference timing. Grabbing frames, post-processing and drawing are not taken into account.<br>
+
+| demo             | model_name                   | Orin Nano | Nano  |
+| ---------------- | ---------------------------- | :-----: | :--------: |
+| yolov5           | yolov5nu                     | 100     | 20         |
+| yolov8           | yolov8n                      | 100     | 19         |
+|                  | yolov8s                      | 100     | 9.25       |
+|                  | yolov8m                      | 40      |  -        |
+|                  | yolov8l                      | 20      |  -        |
+|                  | yolov8x                      | 17      |  -        |
+
 ------------
 
 ## Dependencies.
