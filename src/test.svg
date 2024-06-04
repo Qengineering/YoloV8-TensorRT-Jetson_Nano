@@ -1,9 +1,10 @@
-<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
-<foreignObject width="100" height="100">
+<svg width="400" height="100" xmlns="http://www.w3.org/2000/svg">
+<foreignObject width="400" height="100">
     <div xmlns="http://www.w3.org/1999/xhtml">
         <ul>
             <li>my nice text</li>
         </ul>
+        de test in Kader
         <!-- Other embed HTML element/text into SVG -->
     </div>
 </foreignObject>
