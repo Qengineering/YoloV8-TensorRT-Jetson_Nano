@@ -8,8 +8,7 @@ For now: https://github.com/akashAD98/yolov8_in_depth<br>
 Paper: on Ultralytics TODO list https://github.com/ultralytics/ultralytics<br/><br/>
 Specially made for a Jetson Nano see [Q-engineering deep learning examples](https://qengineering.eu/deep-learning-examples-on-raspberry-32-64-os.html)
 
-![](./src/export(1).svg)
-
+<!--@include:./src/test2.md-->
 
 ------------
 
