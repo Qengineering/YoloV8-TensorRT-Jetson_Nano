@@ -10,6 +10,13 @@ Specially made for a Jetson Nano see [Q-engineering deep learning examples](http
 
 ------------
 
+## ⚠️ TensorRT version notice
+
+- For Jetson Nano / TensorRT 8.x → use branch: `tensorrt8` (default)
+- For newer platforms (Orin, x86, TensorRT 10.x) → use branch: `tensorrt10`
+
+------------
+
 ## Model performance benchmark(FPS)
 
 All models are quantized to `FP16`.<br>
